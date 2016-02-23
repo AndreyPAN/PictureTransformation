@@ -36,7 +36,10 @@
 			this.FiltresTitle = new System.Windows.Forms.TextBox();
 			this.buttonApply = new System.Windows.Forms.Button();
 			this.checkBoxB_W = new System.Windows.Forms.CheckBox();
+			this.trackBarBrightness = new System.Windows.Forms.TrackBar();
+			this.labelBrightness = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// picture
@@ -112,11 +115,37 @@
 			this.checkBoxB_W.Text = "Black  and  White";
 			this.checkBoxB_W.UseVisualStyleBackColor = true;
 			// 
+			// trackBarBrightness
+			// 
+			this.trackBarBrightness.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.trackBarBrightness.LargeChange = 10;
+			this.trackBarBrightness.Location = new System.Drawing.Point(796, 253);
+			this.trackBarBrightness.Maximum = 50;
+			this.trackBarBrightness.Minimum = -50;
+			this.trackBarBrightness.Name = "trackBarBrightness";
+			this.trackBarBrightness.Size = new System.Drawing.Size(212, 45);
+			this.trackBarBrightness.TabIndex = 6;
+			this.trackBarBrightness.TickFrequency = 10;
+			this.trackBarBrightness.TickStyle = System.Windows.Forms.TickStyle.Both;
+			this.trackBarBrightness.ValueChanged += new System.EventHandler(this.trackBarBrightness_ValueChanged);
+			// 
+			// labelBrightness
+			// 
+			this.labelBrightness.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.labelBrightness.Location = new System.Drawing.Point(796, 227);
+			this.labelBrightness.Name = "labelBrightness";
+			this.labelBrightness.Size = new System.Drawing.Size(212, 23);
+			this.labelBrightness.TabIndex = 7;
+			this.labelBrightness.Text = "CHANGE BRIGHTNESS";
+			this.labelBrightness.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// FormPicture
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1033, 665);
+			this.Controls.Add(this.labelBrightness);
+			this.Controls.Add(this.trackBarBrightness);
 			this.Controls.Add(this.checkBoxB_W);
 			this.Controls.Add(this.buttonApply);
 			this.Controls.Add(this.FiltresTitle);
@@ -128,6 +157,7 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "Pixel  transformation";
 			((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -142,6 +172,8 @@
 		private System.Windows.Forms.TextBox FiltresTitle;
 		private System.Windows.Forms.Button buttonApply;
 		private System.Windows.Forms.CheckBox checkBoxB_W;
+		private System.Windows.Forms.TrackBar trackBarBrightness;
+		private System.Windows.Forms.Label labelBrightness;
 	}
 }
 

@@ -14,10 +14,12 @@ namespace Picture
 
 	{
 		Bitmap bmp;
+		string text_brightness;
 		public FormPicture()
 		{
 			InitializeComponent();
 			Loadpicture("IMG_20150908_155756.jpg");
+			text_brightness = labelBrightness.Text;
 		}
 
 		private void OpenPicture_Click(object sender, EventArgs e)
@@ -62,6 +64,11 @@ namespace Picture
 					{
 						pixel = ChangeGrayScale( pixel);
 					}
+					if (trackBarBrightness.Value !=0)
+					{
+						pixel = ChangeBrightness(pixel, trackBarBrightness.Value);
+
+					}
 
 
 					res.SetPixel(x, y, pixel);
@@ -72,10 +79,33 @@ namespace Picture
 
 		}
 
+		private Color ChangeBrightness(Color pixel, int procent)
+		{
+			float p = procent / 100f;
+
+			return Color.FromArgb(
+			ChangeBrightness(pixel.R, p),
+			ChangeBrightness(pixel.G, p),
+			ChangeBrightness(pixel.B, p));
+		}
+
+		private int ChangeBrightness(int color, float p)
+		{
+			int res =Convert.ToInt16( color + p * 128);
+			if (res > 255) res = 255;
+			if (res < 0) res = 0;
+			return res;
+		}
+
 		private Color ChangeGrayScale( Color pixel)
 		{
 			int avgColor = (pixel.R + pixel.G + pixel.B + 1) / 3;
 			return Color.FromArgb(avgColor, avgColor, avgColor);
+		}
+
+		private void trackBarBrightness_ValueChanged(object sender, EventArgs e)
+		{
+			labelBrightness.Text = text_brightness + " " + trackBarBrightness.Value + "%";
 		}
 	}
 }
